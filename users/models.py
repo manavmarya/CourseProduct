@@ -47,7 +47,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_superuser = models.BooleanField(default=False)
     objects = UserManager()
     def __str__(self):
-        return "{0} of Class {1}".format(self.name,self.class_name)
+        return "{0}".format(self.name)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']
