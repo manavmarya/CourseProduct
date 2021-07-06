@@ -4,10 +4,10 @@ from .models import Course, WishList
 
 class courseSerializer(serializers.ModelSerializer):
     class Meta:
-        model: Course
-        fields: '__all__'
+        model = Course
+        fields = '__all__'
 
 class wishListSerializer(serializers.ModelSerializer):
     class Meta:
-        model: WishList
-        fields: '__all__'
+        model= WishList
+        fields= '__all__'
