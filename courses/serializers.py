@@ -8,6 +8,14 @@ class courseSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class wishListSerializer(serializers.ModelSerializer):
+    courseData = serializers.SerializerMethodField()
+    userData = serializers.SerializerMethodField()
     class Meta:
         model= WishList
         fields= '__all__'
+    
+    def get_courseData(self, obj):
+        return list(obj.course.price, obj.course.creator.name, obj.course.date_added)
+
+    def get_userData(self, obj):
+        return list(obj.user.email, obj.user.is_staff)
