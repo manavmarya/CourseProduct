@@ -18,4 +18,4 @@ class wishListSerializer(serializers.ModelSerializer):
         return [obj.course.price, obj.course.creator.name, obj.course.users_enrolled, obj.course.date_added]
 
     def get_userData(self, obj):
-        return [obj.user.email, obj.user.is_staff]
+        return [obj.creator.email, obj.creator.is_staff]
