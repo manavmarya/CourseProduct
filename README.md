@@ -44,15 +44,16 @@ DELETE        | api/wishlist/<id>
 
 1. at api/user
 
-<img src="https://github.com/manavmarya/CourseProduct/raw/master/static/images/wishlist-result.png" width="500" style="margin:auto">
+<img src="https://github.com/manavmarya/CourseProduct/raw/main/static/images/add-user-edit.png" width="500" style="margin:auto">
+<img src="https://github.com/manavmarya/CourseProduct/raw/main/static/images/adduser-post.png" width="500" style="margin:auto">
+<img src="https://github.com/manavmarya/CourseProduct/raw/main/static/images/add-user-result..jpg" width="500" style="margin:auto">
 
 2. login/ & register/ -> if user would be loggen in, it would be automatically redirected to api/
 
-<img src="https://github.com/manavmarya/CourseProduct/raw/main/static/images/add-user-edit.png" width="500" style="margin:auto">
-<img src="https://github.com/manavmarya/CourseProduct/raw/main/static/images/adduser-post.png" width="500" style="margin:auto">
-<img src="https://github.com/manavmarya/CourseProduct/raw/main/static/images/add-user-result.png" width="500" style="margin:auto">
+<img src="https://github.com/manavmarya/CourseProduct/raw/main/static/images/login.jpg" width="500" style="margin:auto">
+<img src="https://github.com/manavmarya/CourseProduct/raw/main/static/images/login-redirect.jpg" width="500" style="margin:auto">
 
-## Installation
+  ## Installation
 
 #### Install all dependencies
 Use the package manager [pip](https://pip.pypa.io/en/stable/)
