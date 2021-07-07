@@ -10,3 +10,6 @@ class courseViewSet(viewsets.ModelViewSet):
 class wishListViewSet(viewsets.ModelViewSet):
     queryset = WishList.objects.all().order_by('-date_added')
     serializer_class = wishListSerializer
+
+    def perform_create(self, serializer):
+        serializer.save()

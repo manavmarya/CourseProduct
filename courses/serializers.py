@@ -10,13 +10,11 @@ class courseSerializer(serializers.ModelSerializer):
 class wishListSerializer(serializers.ModelSerializer):
     courseData = serializers.SerializerMethodField()
     userData = serializers.SerializerMethodField()
+    added_by = serializers.StringRelatedField(default=serializers.CurrentUserDefault(), read_only=True)
     class Meta:
         model= WishList
         exclude= ['creator']
     
-    def perform_create(self, serializer):
-        serializer.save(creator=self.request.user)
-
     def get_courseData(self, obj):
         return [obj.course.price, obj.course.creator.name, obj.course.date_added]
 
