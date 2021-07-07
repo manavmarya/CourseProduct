@@ -50,8 +50,8 @@ DELETE        | api/wishlist/<id>
 
 2. login/ & register/ -> if user would be loggen in, it would be automatically redirected to api/
 
-<img src="https://github.com/manavmarya/CourseProduct/raw/main/static/images/login.jpg" width="500" style="margin:auto">
-<img src="https://github.com/manavmarya/CourseProduct/raw/main/static/images/login-redirect.jpg" width="500" style="margin:auto">
+<img src="https://github.com/manavmarya/CourseProduct/raw/main/static/images/login.png" width="500" style="margin:auto">
+<img src="https://github.com/manavmarya/CourseProduct/raw/main/static/images/login-redirect.png" width="500" style="margin:auto">
 
   ## Installation
 
