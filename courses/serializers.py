@@ -16,10 +16,7 @@ class wishListSerializer(serializers.ModelSerializer):
         fields = '__all__'
     
     def get_courseData(self, obj):
-        if(obj):  return [obj.course.price, obj.course.creator.name, obj.course.date_added]
-        else: return
-           
+        return [obj.course.price, obj.course.creator.name, obj.course.date_added]
 
     def get_userData(self, obj):
-        if(obj): return [obj.creator.email, obj.creator.is_staff]
-        else: return
+        return [obj.creator.email, obj.creator.is_staff]
