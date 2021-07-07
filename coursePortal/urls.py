@@ -26,7 +26,7 @@ urlpatterns = [
     path('', include('users.urls', namespace='users')),
     path('login/', auth_views.LoginView.as_view(template_name='login.html', redirect_authenticated_user=True)),
     path('logout/', auth_views.LogoutView.as_view(template_name='login.html', next_page='/login/')),
-    url(r'^password_reset/$', auth_views.PasswordResetView.as_view(template_name='password_reset',email_template_name='password_reset_email.html')),
+    url(r'^password_reset/$', auth_views.PasswordResetView.as_view(template_name='password_reset.html',email_template_name='password_reset_email.html')),
     url(r'^password_reset/done/$', auth_views.PasswordResetDoneView.as_view(template_name="password_reset_done.html")),
     url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         auth_views.PasswordResetConfirmView.as_view(template_name="password_reset_confirm.html")),
