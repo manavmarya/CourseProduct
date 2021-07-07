@@ -18,6 +18,7 @@ from django.contrib import messages
 
 
 def view_register(request):
+    '''Registering user with ModelForm and rendering it to register.html'''
     if request.method == "POST":
         form = NewUserForm(request.POST)
         if form.is_valid():

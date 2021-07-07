@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import User
 
 class NewUserForm(UserCreationForm):
+	'''User form with explicitly checking email in overriding save function'''
 	email = forms.EmailField(required=True)
 
 	class Meta:

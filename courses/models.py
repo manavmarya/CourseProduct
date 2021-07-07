@@ -7,8 +7,8 @@ class Course(models.Model):
     ''' Course model with Price as Float, creator as User model, auto date is added'''
     name = models.CharField(max_length=100)
     price = models.FloatField()
-    creator = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, limit_choices_to={'is_staff': True}, related_name="creator", blank=True, null=True)
-    users_enrolled = models.ManyToManyField(AUTH_USER_MODEL, limit_choices_to={'is_staff': False}, related_name="students", blank=True)
+    creator = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, limit_choices_to={'is_staff': True}, related_name="creator", blank=True, null=True) #blank & null to initiate without any value but added in perform_create
+    users_enrolled = models.ManyToManyField(AUTH_USER_MODEL, limit_choices_to={'is_staff': False}, related_name="students", blank=True) #limited to only non-staff users
     date_added = models.DateField(auto_now_add=True)
 
     def __str__(self):
@@ -17,7 +17,7 @@ class Course(models.Model):
 
 class WishList(models.Model):
     '''WishList model with ManytoOne with User and Course, auto date stamp'''
-    creator = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True, null=True)
+    creator = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True, null=True) #blank & null to initiate without any value but added in perform_create
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     date_added = models.DateField(auto_now_add=True)
 

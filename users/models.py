@@ -1,11 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
-from django.core.validators import MaxValueValidator, MinValueValidator
-from django.contrib.auth.models import Group
 from coursePortal.settings import AUTH_USER_MODEL
 
 
 class UserManager(BaseUserManager):
+    '''create different user type for future features'''
     def create_user(self, email, is_staff, is_superuser, is_active, password, name):
         if not email:
             raise ValueError('Users must have an email address')
@@ -23,6 +22,7 @@ class UserManager(BaseUserManager):
         return user
 
     def create_staffuser(self, email, is_staff, is_superuser, password, name):
+        '''staff profile'''
         user = self.create_user(
             email,
             password=password,
@@ -41,12 +41,10 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-minmax_error = "Class not valid"
-
 class User(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(max_length=100)
-    email = models.EmailField(verbose_name="Email Address", max_length=255, unique=True)
-    is_staff = models.BooleanField(default=False)
+    email = models.EmailField(verbose_name="Email Address", max_length=255, unique=True) #email as unique
+    is_staff = models.BooleanField(default=False) #defaul profile is non-staff
     is_superuser = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     objects = UserManager()
@@ -55,9 +53,6 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']
-
-    def get_absolute_url(self):
-        return "/users/{0}/".format(self.pk)
 
     def get_courses(self):
         return self.course_set.all()

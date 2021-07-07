@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models import User
 
 
-class UserAdmin(BaseUserAdmin):
+class UserAdmin(BaseUserAdmin): #create custom modelview for better customisation
     fieldsets = (
         (None, {'fields': ('email', 'password', 'name',)}),
         ('Permissions', {'fields': (
