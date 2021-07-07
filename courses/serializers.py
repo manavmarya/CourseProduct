@@ -13,7 +13,7 @@ class wishListSerializer(serializers.ModelSerializer):
     creator = serializers.StringRelatedField(default=serializers.CurrentUserDefault(), read_only=True)
     class Meta:
         model= WishList
-        exclude= '__all__'
+        fields = '__all__'
     
     def get_courseData(self, obj):
         return [obj.course.price, obj.course.creator.name, obj.course.date_added]
