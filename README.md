@@ -38,7 +38,7 @@ POST          | api/wishlist/
 PUT/PATCH     | api/wishlist/<id>
 DELETE        | api/wishlist/<id>
 
-<img src="https://github.com/manavmarya/CourseProduct/raw/main/static/images/wishlist-result.png" width="500" style="margin:auto">
+<img src="https://github.com/manavmarya/CourseProduct/raw/main/static/images/wishlist-result.jpg" width="500" style="margin:auto">
                                                                                                                     
 #### User model also supports CRUD Api
 
