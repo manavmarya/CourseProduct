@@ -25,7 +25,7 @@ def view_register(request):
             user = form.save()
             login(request, user)
             messages.success(request, "Registration successful.")
-            return redirect("users:view_profile")
+            return redirect("/api/")
         else:
             print(form.errors)
             messages.error(request, "Unsuccessful registration. Invalid information.")
