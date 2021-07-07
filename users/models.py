@@ -6,7 +6,7 @@ from coursePortal.settings import AUTH_USER_MODEL
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, is_staff, is_superuser, is_active, password, name):
+    def create_user(self, email, is_staff, is_superuser, password, name):
         if not email:
             raise ValueError('Users must have an email address')
 
@@ -21,7 +21,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_staffuser(self, email, is_staff, is_superuser, is_active, password, name):
+    def create_staffuser(self, email, is_staff, is_superuser, password, name):
         user = self.create_user(
             email,
             password=password,
@@ -34,7 +34,7 @@ class UserManager(BaseUserManager):
         return user
 
     def create_superuser(self, email, password, **kwargs):
-        user = self.create_user(email, True, True, True, password, **kwargs)
+        user = self.create_user(email, True, True, password, **kwargs)
         user.save(using=self._db)
         return user
 
