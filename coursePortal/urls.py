@@ -27,7 +27,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='login.html', redirect_authenticated_user=True)),
     path('logout/', auth_views.LogoutView.as_view(template_name='login.html', next_page='/login/')),
     path('reset/NA/$', auth_views.PasswordResetView.as_view(template_name='password_reset.html')),
-    path('/users/reset/NA/(?P<uidb36>[0-9A-Za-z]+)-(?P<token>.+)/$', auth_views.auth_views.PasswordResetConfirmView(template_name='password_reset_confirm.html')),
+    path('/users/reset/NA/(?P<uidb36>[0-9A-Za-z]+)-(?P<token>.+)/$', auth_views.PasswordResetConfirmView(template_name='password_reset_confirm.html')),
     path('api/', include(router.urls))
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
