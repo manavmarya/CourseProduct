@@ -4,10 +4,12 @@ from .serializers import courseSerializer, wishListSerializer
 from courses import serializers
 
 class courseViewSet(viewsets.ModelViewSet):
+    '''viewset for course CRUD rest api'''
     queryset = Course.objects.all().order_by('-date_added')
     serializer_class = courseSerializer
 
 class wishListViewSet(viewsets.ModelViewSet):
+    '''viewset for wishList CRUD rest api'''
     queryset = WishList.objects.all().order_by('-date_added')
     serializer_class = wishListSerializer
 
