@@ -28,7 +28,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='login.html', next_page='/login/')),
     url(r'^password_reset/$', auth_views.PasswordResetView.as_view(template_name='password_reset.html',email_template_name='password_reset_email.html')),
     url(r'^password_reset_done/', auth_views.PasswordResetDoneView.as_view(template_name="password_reset_done.html"), name='password_reset_done'),
-    url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+    url(r'^reset/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$',
         auth_views.PasswordResetConfirmView.as_view(template_name="password_reset_confirm.html"), name='password_reset_confirm'),
     url(r'^reset/done/$', auth_views.PasswordResetCompleteView.as_view(template_name="password_reset_complete.html"), name='password_reset_complete'),
     path('api/', include(router.urls))
