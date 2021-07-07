@@ -12,7 +12,7 @@ class wishListSerializer(serializers.ModelSerializer):
     userData = serializers.SerializerMethodField()
     class Meta:
         model= WishList
-        exclude= ('creator')
+        exclude= ['creator']
     
     def perform_create(self, serializer):
         serializer.save(creator=self.request.user)
