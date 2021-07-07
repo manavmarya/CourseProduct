@@ -7,7 +7,7 @@ class Course(models.Model):
     ''' Course model with Price as Float, creator as User model, auto date is added'''
     name = models.CharField(max_length=100)
     price = models.FloatField()
-    creator = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, limit_choices_to={'is_staff': True}, related_name="creator")
+    creator = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, limit_choices_to={'is_staff': True}, related_name="creator", blank=True, null=True)
     users_enrolled = models.ManyToManyField(AUTH_USER_MODEL, limit_choices_to={'is_staff': False}, related_name="students", blank=True)
     date_added = models.DateField(auto_now_add=True)
 
@@ -17,7 +17,7 @@ class Course(models.Model):
 
 class WishList(models.Model):
     '''WishList model with ManytoOne with User and Course, auto date stamp'''
-    creator = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE)
+    creator = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True, null=True)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     date_added = models.DateField(auto_now_add=True)
 
