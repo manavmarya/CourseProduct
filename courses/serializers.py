@@ -3,6 +3,7 @@ from rest_framework import serializers
 from .models import Course, WishList
 
 class courseSerializer(serializers.ModelSerializer):
+    creator = serializers.StringRelatedField(default=serializers.CurrentUserDefault(), read_only=True)
     class Meta:
         model = Course
         fields = '__all__'

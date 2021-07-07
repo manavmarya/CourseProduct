@@ -8,15 +8,15 @@ class courseViewSet(viewsets.ModelViewSet):
     queryset = Course.objects.all().order_by('-date_added')
     serializer_class = courseSerializer
 
+    def perform_create(self, serializer):
+        '''method override to save current user as default'''
+        serializer.save(creator = self.request.user)
+
 class wishListViewSet(viewsets.ModelViewSet):
     '''viewset for wishList CRUD rest api'''
     queryset = WishList.objects.all().order_by('-date_added')
     serializer_class = wishListSerializer
 
-    '''def get_serializer_context(self):
-        context = super(wishListViewSet, self).get_serializer_context()
-        context.update({"request": self.request})
-        return context'''
-
     def perform_create(self, serializer):
+        '''method override to save current user as default'''
         serializer.save(creator = self.request.user)
